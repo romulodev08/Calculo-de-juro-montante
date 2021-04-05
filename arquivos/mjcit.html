@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: rgba(0, 0, 0, 0.884);
+        }
+        section{
+            background: rgba(0, 0, 0, 0);
+            width: 230px;
+            margin: auto;
+            color: aqua;
+            font: normal 12pt Times;
+            text-align: center;
+        }
+        input{
+            font:normal 20pt Arial ;
+            color:rgb(0, 0, 0);
+            height: 25px;
+            width: 220px;
+            font:normal 21pt Garamond;
+        }
+        input#botao{
+            background: rgb(253, 255, 160);
+            border-radius: 15px;
+            height: 40px;
+            width: 175px;
+        }
+        div{
+            color: rgb(0, 0, 0);
+            background: rgb(43, 193, 238);
+            width: 220px;
+            font: normal 12pt Arial;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <h1>Cálculo de juro e montante</h1>        
+        <input type='number' placeholder='Capital' id='c'><br/>
+        <input type='number' placeholder='Taxa(%)' id='i'><br/>
+        <input type='number' placeholder='Tempo' id='t'><br/>
+        <input type='number' placeholder='Juro' id='j'><br/>
+        <input type='number' placeholder='Montante' id='m'><br/>
+        <input type='button' value='Calcular' onclick='calcular()' id='botao'>
+        <div id='resultado'>Resultado:</div>  
+    </section>
+    
+    <script>
+            var capital = document.getElementById('c')
+            var taxa = document.getElementById('i')
+            var tempo = document.getElementById('t')
+            var juro = document.getElementById('j')
+            var montante = document.getElementById('m')
+            var resultado = document.getElementById('resultado')
+            function calcular(){
+                var c = Number(capital.value)
+                var i = Number(taxa.value)
+                var t = Number(tempo.value)
+                var j = Number(juro.value)
+                var m = Number(montante.value)             
+                if(i == 0 && j == 0 && c != 0 && t != 0 && m != 0){
+                    j = m - c
+                    i = j / (c * t /100)
+                    resultado.innerHTML= `Taxa ${i.toFixed(2)}% <br/>Juro: R$${j.toFixed(2)}`.replace('.',',').replace('.',',')
+                }else if(t == 0 && j == 0 && c != 0 && i != 0 && m != 0){
+                    j = m - c
+                    t = j / (c * i /100)
+                    resultado.innerHTML= `Tempo: ${t.toFixed(0)} <br/>Juro: R$${j.toFixed(2)}`.replace('.',',').replace('.',',')
+                }else if(j == 0 && c !=0 && i !=0 && t !=0){
+                    j = c * i * t /100
+                    m = j + c
+                    resultado.innerHTML= `Juro: R$${j.toFixed(2)} <br/>Montante: R$${m.toFixed(2)}`.replace('.',',').replace('.',',')
+                }else if(c == 0 && j !=0 && i !=0 && t !=0){
+                    c = j / (t * i /100)
+                    m = j + c
+                    resultado.innerHTML= `Capital: R$${c.toFixed(2)} <br/>Montante: R$${m.toFixed(2)}`.replace('.',',').replace('.',',')
+                }else if(i == 0 && j !=0 && c !=0 && t !=0){
+                    i = j / (c * t /100)
+                    m = j + c
+                    resultado.innerHTML=`Taxa: ${i.toFixed(2)}% <br/>Montante: R$${m.toFixed(2)}`.replace('.',',').replace('.',',')
+                }else if(t == 0 && j !=0 && c !=0 && i !=0){
+                    t = j / (c * i /100)
+                    m = j + c
+                    resultado.innerHTML= `Tempo: ${t.toFixed(2)} <br/>Montante: R$${m.toFixed(2)}`.replace('.',',').replace('.',',')
+                }
+            }
+    </script>
+</body>
+</html>
