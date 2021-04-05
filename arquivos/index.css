@@ -63,3 +63,38 @@ input{
     background: #73648A;
     color: #FFC857;
 }
+
+#creditos {
+    min-height: 45px;
+    margin: 30px 0 0 0;
+    padding: 15px;
+    text-align: center;
+
+    background: rgb(49, 49, 49);
+}
+#creditos  div {
+    display: inline-table;
+    width: 300px;
+    border-left: solid 4px #FFC857;
+    padding: 4px 4px 4px 8px;
+    margin-bottom: 8px;
+    font: normal 11pt Sans-serif;
+    text-align: left;
+
+    background: linear-gradient(90deg, rgba(128, 128, 128, 0.863), rgba(128, 128, 128, 0.733), rgba(128, 128, 128, 0.692), rgba(128, 128, 128, 0));
+    color: #FFC857;
+    text-shadow: 4px 4px 4px black;
+}
+#creditos div h1 {
+    font-size: 12pt;
+    color: black;
+    text-shadow: none;
+}
+a {
+    text-decoration-line: none;
+    color: #FFC857;
+}
+
+a:hover{
+    color: #ffbe3c;
+}
