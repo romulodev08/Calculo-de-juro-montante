@@ -1,1 +1,0 @@
-# Calculo-de-juro-montante
